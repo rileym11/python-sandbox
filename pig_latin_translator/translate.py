@@ -42,7 +42,7 @@ try:
   using_file = input('Would you like to translate the "content.txt" file? [y:N]')
 
   if using_file.lower() == 'y':
-    with open('content.txt', 'r') as content_file:
+    with open('content.txt', 'r+') as content_file:
       content = content_file.read().replace('\n', '')
       if content:
         pig_latin(content)
