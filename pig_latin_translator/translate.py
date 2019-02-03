@@ -29,18 +29,28 @@ def pig_latin(content = ""):
 
   print()
   print()
-  print('The pig latin translation is:')
-  print('================================')
-  print()
-  print(formatted_output)
-  print()
-  print('================================')
+  print('The pig latin translation has been piped to the "pig_latin_translation.txt" file.')
+  pass
 
 print()
 print('Welcome to the pig latin translator!')
 print()
 print('If you would like to translate a file, please make sure its contents are in the "content.txt" file provided')
 print()
-input('Would you like to translate a file? [y:N]')
 
-pig_latin()
+try:
+  using_file = input('Would you like to translate the "content.txt" file? [y:N]')
+
+  if using_file.lower() == 'y':
+    with open('content.txt', 'r') as content_file:
+      content = content_file.read().replace('\n', '')
+      if content:
+        pig_latin(content)
+      else:
+        print('The "content.txt" file is empty')
+  else:
+    pig_latin()
+
+except:
+  print('An error has occured')
+  pass
